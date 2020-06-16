@@ -1,6 +1,6 @@
-import {Component, OnInit} from '@angular/core';
-import {ArticleService} from 'src/app/services/article.service';
-import {ActivatedRoute, Router} from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { ArticleService } from 'src/app/services/article.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-article-details',
