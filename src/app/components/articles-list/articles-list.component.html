@@ -1,0 +1,63 @@
+<div>
+  <div>
+    <div>
+      <input
+        type="text"
+        placeholder="Search by title"
+        [(ngModel)]="title"
+      />
+      <div>
+        <button
+          type="button"
+          (click)="searchTitle()"
+        >
+          Search
+        </button>
+      </div>
+    </div>
+  </div>
+  <div>
+    <h4>Articles List</h4>
+    <ul>
+      <li
+        *ngFor="let article of articles; let i = index"
+        [class.active]="i == currentIndex"
+        (click)="setActiveArticle(article, i)"
+      >
+        {{ article.title }}
+      </li>
+    </ul>
+
+    <button nz-button nzType="primary" nzDanger (click)="removeAllArticles()">
+      Remove All
+    </button>
+  </div>
+  <div>
+    <div *ngIf="currentArticle">
+      <h4>Articles</h4>
+      <div>
+        <label><strong>Title:</strong></label> {{ currentArticle.title }}
+      </div>
+      <div>
+        <label><strong>Author:</strong></label> {{ currentArticle.author }}
+      </div>
+      <div>
+        <label><strong>Description:</strong></label>
+        {{ currentArticle.description }}
+      </div>
+      <div>
+        <label><strong>Body:</strong></label>
+        {{ currentArticle.body }}
+      </div>
+
+      <a nz-button nzType="primary" routerLink="/articles/{{ currentArticle.id }}">
+        Edit
+      </a>
+    </div>
+
+    <div *ngIf="!currentArticle">
+      <br />
+      <p>Please click on a Article...</p>
+    </div>
+  </div>
+</div>
